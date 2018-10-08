@@ -1,6 +1,6 @@
 <map id="sociedad2.Modelo" name="sociedad2.Modelo">
 <area shape="rect" id="node3" href="$classsociedad2_1_1_vista.html" title="sociedad2.Vista" alt="" coords="424,256,539,283"/>
-<area shape="rect" id="node7" href="$classsociedad2_1_1_controlador.html" title="sociedad2.Controlador" alt="" coords="656,271,807,297"/>
+<area shape="rect" id="node7" href="$classsociedad2_1_1_controlador.html" title="Controlador class. " alt="" coords="656,271,807,297"/>
 <area shape="rect" id="node6" href="$classsociedad2_1_1_socio.html" title="sociedad2.Socio" alt="" coords="190,107,309,133"/>
-<area shape="rect" id="node13" href="$classsociedad2_1_1_conexion.html" title="sociedad2.Conexion" alt="" coords="180,360,319,387"/>
+<area shape="rect" id="node13" href="$classsociedad2_1_1_conexion.html" title="Conexion class. " alt="" coords="180,360,319,387"/>
 </map>
