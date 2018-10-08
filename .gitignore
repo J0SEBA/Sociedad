@@ -1,0 +1,7 @@
+/bin/
+/.scannerwork/
+/.settings/
+/icons/
+sonar-project.properties
+.classpath
+.project
