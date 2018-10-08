@@ -1,0 +1,175 @@
+\hypertarget{classsociedad2_1_1_modelo}{}\section{sociedad2.\+Modelo Class Reference}
+\label{classsociedad2_1_1_modelo}\index{sociedad2.\+Modelo@{sociedad2.\+Modelo}}
+
+
+Inheritance diagram for sociedad2.\+Modelo\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{classsociedad2_1_1_modelo__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for sociedad2.\+Modelo\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classsociedad2_1_1_modelo__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsociedad2_1_1_modelo_a86845e60b689ec38e858bde11723e6ef}{Modelo}} (\mbox{\hyperlink{classsociedad2_1_1_vista}{Vista}} vista)
+\item 
+Array\+List$<$ \mbox{\hyperlink{classsociedad2_1_1_socio}{Socio}} $>$ \mbox{\hyperlink{classsociedad2_1_1_modelo_a6d7ac9cc5eeccf4a421552249ffd81a3}{Consultar\+Datos\+Socio}} (String comando, String info, Connection con)  throws S\+Q\+L\+Exception 
+\item 
+Array\+List$<$ \mbox{\hyperlink{classsociedad2_1_1_producto}{Producto}} $>$ \mbox{\hyperlink{classsociedad2_1_1_modelo_acee3bbd6bb68da5cdecf4f91b442c420}{Consultar\+Datos\+Productos}} (String comando, String info, Connection con)  throws S\+Q\+L\+Exception 
+\item 
+Array\+List$<$ \mbox{\hyperlink{classsociedad2_1_1_categorias}{Categorias}} $>$ \mbox{\hyperlink{classsociedad2_1_1_modelo_ad5d24bd98199dc5f80dc16de9dcb7287}{Consultar\+Datos\+Categorias}} (String comando, String info, Connection con)  throws S\+Q\+L\+Exception 
+\item 
+void \mbox{\hyperlink{classsociedad2_1_1_modelo_a19514d1ec71bfec488ee6712ee43c9cc}{insertar\+Datos}} (String comando, Connection conn)
+\item 
+int \mbox{\hyperlink{classsociedad2_1_1_modelo_acbf5f90be2a155ebac005a274b812fe7}{obtener\+Id}} (String comando, Connection conn)
+\item 
+void \mbox{\hyperlink{classsociedad2_1_1_modelo_a650c4ed5505b43ee33c1064d8413c645}{comprobar}} ()
+\item 
+void \mbox{\hyperlink{classsociedad2_1_1_modelo_a90980190a9a1aa4bec012b891335e3a0}{sacar\+Alerta\+Productos\+Minimo}} (Array\+List$<$ \mbox{\hyperlink{classsociedad2_1_1_producto}{Producto}} $>$ lista)
+\item 
+void \mbox{\hyperlink{classsociedad2_1_1_modelo_a8b79e5db8e4ec13de96078a91f7d2741}{hacer\+Pedido}} (Array\+List$<$ \mbox{\hyperlink{classsociedad2_1_1_producto}{Producto}} $>$ lista)
+\item 
+void \mbox{\hyperlink{classsociedad2_1_1_modelo_a66758d80d56ab3bb2f7b031063808eb5}{añadir\+Pedido}} (Array\+List$<$ \mbox{\hyperlink{classsociedad2_1_1_producto}{Producto}} $>$ lista)
+\item 
+boolean \mbox{\hyperlink{classsociedad2_1_1_modelo_af10264132f4de68b5ce88891146cd27e}{identificarse}} (String s1, String s2, Connection con)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 26 of file Modelo.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classsociedad2_1_1_modelo_a86845e60b689ec38e858bde11723e6ef}\label{classsociedad2_1_1_modelo_a86845e60b689ec38e858bde11723e6ef}} 
+\index{sociedad2\+::\+Modelo@{sociedad2\+::\+Modelo}!Modelo@{Modelo}}
+\index{Modelo@{Modelo}!sociedad2\+::\+Modelo@{sociedad2\+::\+Modelo}}
+\subsubsection{\texorpdfstring{Modelo()}{Modelo()}}
+{\footnotesize\ttfamily sociedad2.\+Modelo.\+Modelo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsociedad2_1_1_vista}{Vista}}}]{vista }\end{DoxyParamCaption})}
+
+
+
+Definition at line 31 of file Modelo.\+java.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classsociedad2_1_1_modelo_a66758d80d56ab3bb2f7b031063808eb5}\label{classsociedad2_1_1_modelo_a66758d80d56ab3bb2f7b031063808eb5}} 
+\index{sociedad2\+::\+Modelo@{sociedad2\+::\+Modelo}!añadir\+Pedido@{añadir\+Pedido}}
+\index{añadir\+Pedido@{añadir\+Pedido}!sociedad2\+::\+Modelo@{sociedad2\+::\+Modelo}}
+\subsubsection{\texorpdfstring{añadir\+Pedido()}{añadirPedido()}}
+{\footnotesize\ttfamily void sociedad2.\+Modelo.\+añadir\+Pedido (\begin{DoxyParamCaption}\item[{Array\+List$<$ \mbox{\hyperlink{classsociedad2_1_1_producto}{Producto}} $>$}]{lista }\end{DoxyParamCaption})}
+
+
+
+Definition at line 254 of file Modelo.\+java.
+
+\mbox{\Hypertarget{classsociedad2_1_1_modelo_a650c4ed5505b43ee33c1064d8413c645}\label{classsociedad2_1_1_modelo_a650c4ed5505b43ee33c1064d8413c645}} 
+\index{sociedad2\+::\+Modelo@{sociedad2\+::\+Modelo}!comprobar@{comprobar}}
+\index{comprobar@{comprobar}!sociedad2\+::\+Modelo@{sociedad2\+::\+Modelo}}
+\subsubsection{\texorpdfstring{comprobar()}{comprobar()}}
+{\footnotesize\ttfamily void sociedad2.\+Modelo.\+comprobar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 137 of file Modelo.\+java.
+
+\mbox{\Hypertarget{classsociedad2_1_1_modelo_ad5d24bd98199dc5f80dc16de9dcb7287}\label{classsociedad2_1_1_modelo_ad5d24bd98199dc5f80dc16de9dcb7287}} 
+\index{sociedad2\+::\+Modelo@{sociedad2\+::\+Modelo}!Consultar\+Datos\+Categorias@{Consultar\+Datos\+Categorias}}
+\index{Consultar\+Datos\+Categorias@{Consultar\+Datos\+Categorias}!sociedad2\+::\+Modelo@{sociedad2\+::\+Modelo}}
+\subsubsection{\texorpdfstring{Consultar\+Datos\+Categorias()}{ConsultarDatosCategorias()}}
+{\footnotesize\ttfamily Array\+List$<$\mbox{\hyperlink{classsociedad2_1_1_categorias}{Categorias}}$>$ sociedad2.\+Modelo.\+Consultar\+Datos\+Categorias (\begin{DoxyParamCaption}\item[{String}]{comando,  }\item[{String}]{info,  }\item[{Connection}]{con }\end{DoxyParamCaption}) throws S\+Q\+L\+Exception}
+
+
+
+Definition at line 75 of file Modelo.\+java.
+
+\mbox{\Hypertarget{classsociedad2_1_1_modelo_acee3bbd6bb68da5cdecf4f91b442c420}\label{classsociedad2_1_1_modelo_acee3bbd6bb68da5cdecf4f91b442c420}} 
+\index{sociedad2\+::\+Modelo@{sociedad2\+::\+Modelo}!Consultar\+Datos\+Productos@{Consultar\+Datos\+Productos}}
+\index{Consultar\+Datos\+Productos@{Consultar\+Datos\+Productos}!sociedad2\+::\+Modelo@{sociedad2\+::\+Modelo}}
+\subsubsection{\texorpdfstring{Consultar\+Datos\+Productos()}{ConsultarDatosProductos()}}
+{\footnotesize\ttfamily Array\+List$<$\mbox{\hyperlink{classsociedad2_1_1_producto}{Producto}}$>$ sociedad2.\+Modelo.\+Consultar\+Datos\+Productos (\begin{DoxyParamCaption}\item[{String}]{comando,  }\item[{String}]{info,  }\item[{Connection}]{con }\end{DoxyParamCaption}) throws S\+Q\+L\+Exception}
+
+
+
+Definition at line 56 of file Modelo.\+java.
+
+\mbox{\Hypertarget{classsociedad2_1_1_modelo_a6d7ac9cc5eeccf4a421552249ffd81a3}\label{classsociedad2_1_1_modelo_a6d7ac9cc5eeccf4a421552249ffd81a3}} 
+\index{sociedad2\+::\+Modelo@{sociedad2\+::\+Modelo}!Consultar\+Datos\+Socio@{Consultar\+Datos\+Socio}}
+\index{Consultar\+Datos\+Socio@{Consultar\+Datos\+Socio}!sociedad2\+::\+Modelo@{sociedad2\+::\+Modelo}}
+\subsubsection{\texorpdfstring{Consultar\+Datos\+Socio()}{ConsultarDatosSocio()}}
+{\footnotesize\ttfamily Array\+List$<$\mbox{\hyperlink{classsociedad2_1_1_socio}{Socio}}$>$ sociedad2.\+Modelo.\+Consultar\+Datos\+Socio (\begin{DoxyParamCaption}\item[{String}]{comando,  }\item[{String}]{info,  }\item[{Connection}]{con }\end{DoxyParamCaption}) throws S\+Q\+L\+Exception}
+
+
+
+Definition at line 37 of file Modelo.\+java.
+
+\mbox{\Hypertarget{classsociedad2_1_1_modelo_a8b79e5db8e4ec13de96078a91f7d2741}\label{classsociedad2_1_1_modelo_a8b79e5db8e4ec13de96078a91f7d2741}} 
+\index{sociedad2\+::\+Modelo@{sociedad2\+::\+Modelo}!hacer\+Pedido@{hacer\+Pedido}}
+\index{hacer\+Pedido@{hacer\+Pedido}!sociedad2\+::\+Modelo@{sociedad2\+::\+Modelo}}
+\subsubsection{\texorpdfstring{hacer\+Pedido()}{hacerPedido()}}
+{\footnotesize\ttfamily void sociedad2.\+Modelo.\+hacer\+Pedido (\begin{DoxyParamCaption}\item[{Array\+List$<$ \mbox{\hyperlink{classsociedad2_1_1_producto}{Producto}} $>$}]{lista }\end{DoxyParamCaption})}
+
+
+
+Definition at line 185 of file Modelo.\+java.
+
+\mbox{\Hypertarget{classsociedad2_1_1_modelo_af10264132f4de68b5ce88891146cd27e}\label{classsociedad2_1_1_modelo_af10264132f4de68b5ce88891146cd27e}} 
+\index{sociedad2\+::\+Modelo@{sociedad2\+::\+Modelo}!identificarse@{identificarse}}
+\index{identificarse@{identificarse}!sociedad2\+::\+Modelo@{sociedad2\+::\+Modelo}}
+\subsubsection{\texorpdfstring{identificarse()}{identificarse()}}
+{\footnotesize\ttfamily boolean sociedad2.\+Modelo.\+identificarse (\begin{DoxyParamCaption}\item[{String}]{s1,  }\item[{String}]{s2,  }\item[{Connection}]{con }\end{DoxyParamCaption})}
+
+
+
+Definition at line 287 of file Modelo.\+java.
+
+\mbox{\Hypertarget{classsociedad2_1_1_modelo_a19514d1ec71bfec488ee6712ee43c9cc}\label{classsociedad2_1_1_modelo_a19514d1ec71bfec488ee6712ee43c9cc}} 
+\index{sociedad2\+::\+Modelo@{sociedad2\+::\+Modelo}!insertar\+Datos@{insertar\+Datos}}
+\index{insertar\+Datos@{insertar\+Datos}!sociedad2\+::\+Modelo@{sociedad2\+::\+Modelo}}
+\subsubsection{\texorpdfstring{insertar\+Datos()}{insertarDatos()}}
+{\footnotesize\ttfamily void sociedad2.\+Modelo.\+insertar\+Datos (\begin{DoxyParamCaption}\item[{String}]{comando,  }\item[{Connection}]{conn }\end{DoxyParamCaption})}
+
+
+
+Definition at line 92 of file Modelo.\+java.
+
+\mbox{\Hypertarget{classsociedad2_1_1_modelo_acbf5f90be2a155ebac005a274b812fe7}\label{classsociedad2_1_1_modelo_acbf5f90be2a155ebac005a274b812fe7}} 
+\index{sociedad2\+::\+Modelo@{sociedad2\+::\+Modelo}!obtener\+Id@{obtener\+Id}}
+\index{obtener\+Id@{obtener\+Id}!sociedad2\+::\+Modelo@{sociedad2\+::\+Modelo}}
+\subsubsection{\texorpdfstring{obtener\+Id()}{obtenerId()}}
+{\footnotesize\ttfamily int sociedad2.\+Modelo.\+obtener\+Id (\begin{DoxyParamCaption}\item[{String}]{comando,  }\item[{Connection}]{conn }\end{DoxyParamCaption})}
+
+
+
+Definition at line 108 of file Modelo.\+java.
+
+\mbox{\Hypertarget{classsociedad2_1_1_modelo_a90980190a9a1aa4bec012b891335e3a0}\label{classsociedad2_1_1_modelo_a90980190a9a1aa4bec012b891335e3a0}} 
+\index{sociedad2\+::\+Modelo@{sociedad2\+::\+Modelo}!sacar\+Alerta\+Productos\+Minimo@{sacar\+Alerta\+Productos\+Minimo}}
+\index{sacar\+Alerta\+Productos\+Minimo@{sacar\+Alerta\+Productos\+Minimo}!sociedad2\+::\+Modelo@{sociedad2\+::\+Modelo}}
+\subsubsection{\texorpdfstring{sacar\+Alerta\+Productos\+Minimo()}{sacarAlertaProductosMinimo()}}
+{\footnotesize\ttfamily void sociedad2.\+Modelo.\+sacar\+Alerta\+Productos\+Minimo (\begin{DoxyParamCaption}\item[{Array\+List$<$ \mbox{\hyperlink{classsociedad2_1_1_producto}{Producto}} $>$}]{lista }\end{DoxyParamCaption})}
+
+
+
+Definition at line 167 of file Modelo.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/eclipse-\/workspace/\+Sociedad/src/sociedad2/\mbox{\hyperlink{_modelo_8java}{Modelo.\+java}}\end{DoxyCompactItemize}

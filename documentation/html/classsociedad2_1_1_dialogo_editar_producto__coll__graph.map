@@ -1,0 +1,8 @@
+<map id="sociedad2.DialogoEditarProducto" name="sociedad2.DialogoEditarProducto">
+<area shape="rect" id="node9" href="$classsociedad2_1_1_controlador.html" title="sociedad2.Controlador" alt="" coords="199,265,349,292"/>
+<area shape="rect" id="node5" href="$classsociedad2_1_1_vista.html" title="sociedad2.Vista" alt="" coords="478,392,593,419"/>
+<area shape="rect" id="node10" href="$classsociedad2_1_1_modelo.html" title="sociedad2.Modelo" alt="" coords="768,372,895,399"/>
+<area shape="rect" id="node8" href="$classsociedad2_1_1_socio.html" title="sociedad2.Socio" alt="" coords="215,499,333,525"/>
+<area shape="rect" id="node16" href="$classsociedad2_1_1_conexion.html" title="sociedad2.Conexion" alt="" coords="205,347,343,373"/>
+<area shape="rect" id="node18" href="$classsociedad2_1_1_producto.html" title="sociedad2.Producto" alt="" coords="467,92,604,119"/>
+</map>
