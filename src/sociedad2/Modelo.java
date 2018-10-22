@@ -235,7 +235,7 @@ public ArrayList<Categorias> ConsultarDatosCategorias(String comando,String info
 						listaSec.add(lista.get(i));
 					}
 				}
-				añadirPedido(listaSec);
+				addPedido(listaSec);
 			}
 			
 		});
@@ -251,7 +251,7 @@ public ArrayList<Categorias> ConsultarDatosCategorias(String comando,String info
 	}
 	
 	
-	public void añadirPedido(ArrayList<Producto> lista) {
+	public void addPedido(ArrayList<Producto> lista) {
 		String str="insert into pedidos(pedidoID,precioTotal,proveedor) values(";
 		String [] s=new String [lista.size()];
 		float contPrecio=0;
