@@ -34,7 +34,7 @@ import com.mysql.jdbc.Connection;
 public class DialogoVerProducto extends JDialog implements ActionListener,ItemListener{
 	
 	Vista vista;
-	String comando
+	String comando;
 	String info;
 	Connection con;
 	JSplitPane pVentana;

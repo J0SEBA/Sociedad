@@ -35,7 +35,8 @@ public class DialogoRegistrarConsumicion extends JDialog implements ActionListen
 	
 	Vista vista;
 	Dimension dim;
-	String comando,info;
+	String comando;
+    String info;
 	Connection con;
 	JSplitPane pVentana;
 	JSplitPane tripleVentana;
@@ -55,7 +56,7 @@ public class DialogoRegistrarConsumicion extends JDialog implements ActionListen
 	Float contador  =0.0f ;
 	Float total = 0.0f;
 	ArrayList<ProductoConsumicion> listaProCon = null;
-	JButton aceptar
+	JButton aceptar;
 	JButton quitar;
 	
 	
