@@ -1,4 +1,4 @@
-package sociedad2;
+package sociedad;
 
 public class Categorias {
 	

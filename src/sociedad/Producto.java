@@ -1,6 +1,8 @@
-package sociedad2;
+package sociedad;
 
-public class Producto {
+import java.io.Serializable;
+
+public class Producto implements Serializable{
 	 
 	 int productoId;
 	 int categoriaId;

@@ -1,6 +1,6 @@
-package sociedad2;
+package sociedad;
 
-import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
@@ -12,6 +12,8 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
@@ -37,10 +39,12 @@ public class DialogoRegistrarConsumicion extends JDialog implements ActionListen
 	Connection con;
 	JSplitPane pVentana;
 	JSplitPane tripleVentana;
-	JScrollPane scroll,scroll1;
+	JScrollPane scroll;
+	JScrollPane scroll1;
 	ImageIcon icono;
 	JComboBox<String> combo;
-	JLabel label,label1;
+	JLabel label;
+	JLabel label1;
 	JLabel precioTotal;
 	DefaultListModel<Producto> listaModelo;
 	JList<Producto> listaPanel;
@@ -51,7 +55,8 @@ public class DialogoRegistrarConsumicion extends JDialog implements ActionListen
 	Float contador  =0.0f ;
 	Float total = 0.0f;
 	ArrayList<ProductoConsumicion> listaProCon = null;
-	JButton aceptar,quitar;
+	JButton aceptar
+	JButton quitar;
 	
 	
 	public DialogoRegistrarConsumicion(Vista vista, String comando, String info, Connection con) throws SQLException {
@@ -327,7 +332,7 @@ public class DialogoRegistrarConsumicion extends JDialog implements ActionListen
 							
 						}
 					}
-					if(estado==false)
+					if(!estado)
 					{
 						listaModelo1.addElement(producto);
 					}
@@ -341,8 +346,8 @@ public class DialogoRegistrarConsumicion extends JDialog implements ActionListen
 					}
 					
 				} catch (SQLException e2) {
-					// TODO Auto-generated catch block
-					e2.printStackTrace();
+					
+					Logger.getAnonymousLogger().log(Level.INFO,e2.getMessage(),e);
 				}
 				break;
 				
@@ -351,7 +356,7 @@ public class DialogoRegistrarConsumicion extends JDialog implements ActionListen
 				if (JOptionPane.showConfirmDialog(null, "Confirmar operacion?", "WARNING",
 				        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 					
-					ArrayList<Producto> listaProducto = new ArrayList<Producto>();
+					ArrayList<Producto> listaProducto = new ArrayList<>();
 					for(int j=0;j<listaModelo1.getSize();j++) {
 						
 						listaProducto.add(listaModelo1.get(j));
@@ -365,9 +370,6 @@ public class DialogoRegistrarConsumicion extends JDialog implements ActionListen
 					JOptionPane.showMessageDialog(null, "Operacion correctamente realizada", "Correcto",
 					        JOptionPane.INFORMATION_MESSAGE);
 					dispose();
-				} else {
-				    
-					
 				}
 					break;
 				
@@ -408,10 +410,10 @@ public class DialogoRegistrarConsumicion extends JDialog implements ActionListen
 	     listaModelo.addElement(vista.modelo.ConsultarDatosProductos(comando1, info, con).get(j));
 	    }
 	    
-	   //listaPanel.setModel(listaModelo);
+	   
 	  } catch (SQLException e1) {
-	   // TODO Auto-generated catch block
-	   e1.printStackTrace();
+	
+		  Logger.getAnonymousLogger().log(Level.INFO,e1.getMessage(),e);
 	  }
 	}
 

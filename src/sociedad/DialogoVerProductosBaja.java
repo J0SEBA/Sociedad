@@ -1,4 +1,4 @@
-package sociedad2;
+package sociedad;
 
 import java.awt.Container;
 import java.awt.GridLayout;
@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -37,7 +39,7 @@ public class DialogoVerProductosBaja extends JDialog implements ActionListener{
 		this.comando = comando;
 		this.info = info;
 		this.con = con;
-		DefaultListModel<Producto> listaModelo = new DefaultListModel<Producto>();
+		DefaultListModel<Producto> listaModelo = new DefaultListModel<>();
 		
 		scroll = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -52,7 +54,7 @@ public class DialogoVerProductosBaja extends JDialog implements ActionListener{
 		this.getContentPane().add(pVentana);
 	
 	
-		//scroll=new JScrollPane(crearPanelBotones(52));
+		
 		MiAdaptadorProducto adaptador = new MiAdaptadorProducto();
 		listaPanel = new JList<Producto>(listaModelo);
 		for(int i = 0;i < vista.modelo.ConsultarDatosProductos(comando, info, con).size();i++) {
@@ -63,9 +65,6 @@ public class DialogoVerProductosBaja extends JDialog implements ActionListener{
 
 		listaPanel.setCellRenderer(adaptador);
 		scroll.setViewportView(listaPanel);
-		//scroll.add(crearPanelBotones(52),BorderLayout.SOUTH);
-		//this.setContentPane(scroll);
-		//this.add(scroll);
 	
 		this.setVisible(true);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -75,9 +74,9 @@ public class DialogoVerProductosBaja extends JDialog implements ActionListener{
 
 	public ArrayList<Producto> InfoProductos(String comando, String info, Connection con) throws SQLException {
 		
-		ArrayList<Producto> listaSocios = vista.modelo.ConsultarDatosProductos(comando, info, con);
+		return vista.modelo.ConsultarDatosProductos(comando, info, con);
 		
-		return listaSocios;
+		
 	}
 	
 	
@@ -90,7 +89,7 @@ public class DialogoVerProductosBaja extends JDialog implements ActionListener{
 		return boton;
 	}
 	
-	public Container crearPanelBotones(int id) {
+	public Container crearPanelBotones() {
 		
 		JPanel panel = new JPanel(new GridLayout(1,1,10,10));
 	
@@ -125,8 +124,8 @@ public class DialogoVerProductosBaja extends JDialog implements ActionListener{
 			
 				
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				
+				Logger.getAnonymousLogger().log(Level.INFO,e1.getMessage(),e1);
 			}
 			
 			

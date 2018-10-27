@@ -1,6 +1,8 @@
-package sociedad2;
+package sociedad;
 
-public class Socio {
+import java.io.Serializable;
+
+public class Socio implements Serializable{
 	 
 	 int socioId;
 	 String usuario;

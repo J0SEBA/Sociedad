@@ -9,22 +9,25 @@
 
 /** @brief Packages
  */
-package sociedad2;
+package sociedad;
 
 /** @brief Libraries
  */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 
-import com.mysql.jdbc.Connection;
+import java.sql.Connection;
 
 /**
  * @brief Controlador class
  */
-public class Controlador implements ActionListener {
+public class Controlador implements ActionListener, Serializable {
 	
 	/**
 	 * @brief Attributes
@@ -72,11 +75,11 @@ public class Controlador implements ActionListener {
 		case "VER PRODUCTOS":
 			try {
 				
-				DialogoVerProductos dialogoProducto = new DialogoVerProductos(vista,"Select * from productos where "
+				DialogoVerProducto dialogoProducto = new DialogoVerProducto(vista,"Select * from productos where "
 						+ " estado = 'activo' and categoriaID = 10","Productos", con);
 			} catch (SQLException e2) {
-				// TODO Auto-generated catch block
-				e2.printStackTrace();
+				
+				Logger.getAnonymousLogger().log(Level.INFO,e2.getMessage(),e);
 			}
 			break;
 		case "VER SOCIOS":
@@ -84,8 +87,8 @@ public class Controlador implements ActionListener {
 				DialogoVerSocio dialogoSocio = new DialogoVerSocio(vista,"select* from socios where"
 						+ " estado = 'activo' order by socioID ","Socios", con);
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				
+				Logger.getAnonymousLogger().log(Level.INFO,e1.getMessage(),e);
 			}
 			break;
 		case "CONSUMICIONES":
@@ -98,8 +101,8 @@ public class Controlador implements ActionListener {
 				DialogoConsumiciones dialogoVerTuHistorial =new DialogoConsumiciones(vista,"select * from consumiciones where socioId="+vista.getSocio().getSocioId()
 					+ " and "	,"Consumiciones",con, " ");
 					}catch (SQLException e3) {
-				// TODO Auto-generated catch block
-				e3.printStackTrace();
+				
+						Logger.getAnonymousLogger().log(Level.INFO,e3.getMessage(),e);
 					}
 				}
 			
@@ -112,8 +115,8 @@ public class Controlador implements ActionListener {
 				try {
 					DialogoConsumiciones consumiciones = new DialogoConsumiciones(vista, "select * from consumiciones", "Consumiciones", con, " where");
 				} catch (SQLException e3) {
-					// TODO Auto-generated catch block
-					e3.printStackTrace();
+					
+					Logger.getAnonymousLogger().log(Level.INFO,e3.getMessage(),e);
 				}
 			}
 			break;
@@ -135,8 +138,8 @@ public class Controlador implements ActionListener {
 			try {
 				DialogoRegistrarConsumicion dialogoConsumicion = new DialogoRegistrarConsumicion(vista,"Select * from productos where categoriaID = 10","Productos", con);
 			} catch (SQLException e2) {
-				// TODO Auto-generated catch block
-				e2.printStackTrace();
+				
+				Logger.getAnonymousLogger().log(Level.INFO,e2.getMessage(),e);
 			}
 			break;
 		case "DAR SOCIO ALTA":
@@ -144,8 +147,8 @@ public class Controlador implements ActionListener {
 				DialogoVerSociosBaja dialogoBaja = new DialogoVerSociosBaja(vista, "select* from socios where "
 						+ "estado = 'baja'  order by socioID ","Socios", con);
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				
+				Logger.getAnonymousLogger().log(Level.INFO,e1.getMessage(),e);
 			}
 			break;
 		case "DAR PRODUCTO ALTA":
@@ -153,8 +156,8 @@ public class Controlador implements ActionListener {
 				DialogoVerProductosBaja dialogoProdBaja = new DialogoVerProductosBaja(vista, "select* from productos where "
 							+ "estado = 'baja'  order by productoID ","Productos", con);
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				
+				Logger.getAnonymousLogger().log(Level.INFO,e1.getMessage(),e);
 			}
 			
 			break;
@@ -169,6 +172,8 @@ public class Controlador implements ActionListener {
 			modelo.getFecha().pasarDia();
 			vista.getData().setText(modelo.getFecha().toString());
 			break;
+		default:
+				break;
 		}
 	}
 }

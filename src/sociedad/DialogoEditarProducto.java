@@ -1,4 +1,4 @@
-package sociedad2;
+package sociedad;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -17,7 +17,11 @@ import javax.swing.JTextField;
 
 public class DialogoEditarProducto extends JDialog implements ActionListener {
  
- JTextField descripcion,stock,stockMin,stockMedio,precio;
+ JTextField descripcion;
+ JTextField stock;
+ JTextField stockMin;
+ JTextField stockMedio;
+ JTextField precio;
  Vista vista;
  Producto producto;
  

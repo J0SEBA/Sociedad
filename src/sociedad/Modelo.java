@@ -1,4 +1,4 @@
-package sociedad2;
+package sociedad;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -10,7 +10,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -20,8 +23,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import com.mysql.jdbc.ResultSetMetaData;
-import com.mysql.jdbc.Statement;
+import java.sql.ResultSetMetaData;
+import java.sql.Statement;
 
 public class Modelo extends Observable{
 	
@@ -34,11 +37,16 @@ public class Modelo extends Observable{
 		
 	}
 	
-	public ArrayList<Socio> ConsultarDatosSocio(String comando,String info,Connection con) throws SQLException {
+	public List<Socio> ConsultarDatosSocio(String comando,String info,Connection con) throws SQLException {
 		
-		ArrayList<Socio> listaSocio = new ArrayList<Socio>();
+		ArrayList<Socio> listaSocio = new ArrayList<>();
+		Statement stmt = null;
+		try {
+			stmt=(Statement) con.createStatement();
 		
-		Statement stmt=(Statement) con.createStatement();
+		}catch(Exception e) {
+			Logger.getAnonymousLogger().log(Level.INFO,e.getMessage(),e);
+		}
 		ResultSet rs=stmt.executeQuery(comando);
 		
 		while(rs.next())
@@ -53,11 +61,17 @@ public class Modelo extends Observable{
 	}
 	
 	
-	public ArrayList<Producto> ConsultarDatosProductos(String comando,String info,Connection con) throws SQLException {
+	public List<Producto> ConsultarDatosProductos(String comando,String info,Connection con) throws SQLException {
 		
-		ArrayList<Producto> listaProductos = new ArrayList<Producto>();
+		ArrayList<Producto> listaProductos = new ArrayList<>();
 		
-		Statement stmt=(Statement) con.createStatement();
+		Statement stmt = null;
+		try {
+			stmt=(Statement) con.createStatement();
+		
+		}catch(Exception e) {
+			Logger.getAnonymousLogger().log(Level.INFO,e.getMessage(),e);
+		}
 		ResultSet rs=stmt.executeQuery(comando);
 		
 		while(rs.next())
@@ -72,11 +86,17 @@ public class Modelo extends Observable{
 	}
 	
 	
-public ArrayList<Categorias> ConsultarDatosCategorias(String comando,String info,Connection con) throws SQLException {
+public List<Categorias> ConsultarDatosCategorias(String comando,String info,Connection con) throws SQLException {
 		
-		ArrayList<Categorias> listaCategorias = new ArrayList<Categorias>();
+		ArrayList<Categorias> listaCategorias = new ArrayList<>();
 		
-		Statement stmt=(Statement) con.createStatement();
+		Statement stmt = null;
+		try {
+			stmt=(Statement) con.createStatement();
+		
+		}catch(Exception e) {
+			Logger.getAnonymousLogger().log(Level.INFO,e.getMessage(),e);
+		}
 		ResultSet rs=stmt.executeQuery("select * from Categorias");
 		
 		while(rs.next())
@@ -99,23 +119,23 @@ public ArrayList<Categorias> ConsultarDatosCategorias(String comando,String info
 	    }
 	    catch (Exception e)
 	    {
-	      System.err.println("Got an exception!");
-	      System.err.println(e.getMessage());
+	    	Logger.getAnonymousLogger().log(Level.INFO,e.getMessage(),e);
 	    }
 	  }
 	
 	
 	public int obtenerId(String comando,Connection conn) {
 		
-		int valor = 0, valorOficial =0;
-		String[] s=new String[2];
+		int valor = 0;
+		int valorOficial =0;
+		
 		
 		try{
 		Statement stmt=(Statement) conn.createStatement();
 		ResultSet rs= stmt.executeQuery(comando);
 	
 		
-		//valor = result.getColumnCount();
+		
 			while( rs.next()) {
 				
 			valor = Integer.parseInt(rs.getString(1));
@@ -125,8 +145,8 @@ public ArrayList<Categorias> ConsultarDatosCategorias(String comando,String info
 		
 		}
 		catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			Logger.getAnonymousLogger().log(Level.INFO,e.getMessage(),e);
 		}
 		valorOficial = valor+1;
 		return (valorOficial);
@@ -137,17 +157,17 @@ public ArrayList<Categorias> ConsultarDatosCategorias(String comando,String info
 	public void comprobar()
 	{
 
-		Conexion con=new Conexion();
+		Conexion con=new Conexion("admin");
 		
 		
-		ArrayList<Producto> lista=new ArrayList<Producto>();
+		List<Producto> lista=new ArrayList<>();
 		try {
-			lista=ConsultarDatosProductos("select * from productos where estado='activo';",null,con.crearConexion());
+			lista=ConsultarDatosProductos("select * from productos where estado='activo';",null,con.crearConexionBD("admin"));
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			Logger.getAnonymousLogger().log(Level.INFO,e.getMessage(),e);
 		}
-		ArrayList<Producto> array=new ArrayList<Producto>();
+		List<Producto> array=new ArrayList<>();
 		
 		boolean estado=false;
 		for(int i=0;i<lista.size();i++)
@@ -158,13 +178,13 @@ public ArrayList<Categorias> ConsultarDatosCategorias(String comando,String info
 				estado=true;
 			}
 		}
-		if(estado==true)
+		if(estado)
 		{
 			sacarAlertaProductosMinimo(array);
 		}
 	}
 	
-	public void sacarAlertaProductosMinimo(ArrayList<Producto> lista)
+	public void sacarAlertaProductosMinimo(List<Producto> lista)
 	{
 		String str="Los productos ";
 		
@@ -182,10 +202,9 @@ public ArrayList<Categorias> ConsultarDatosCategorias(String comando,String info
 		}
 	}
 	
-	public void hacerPedido(ArrayList<Producto> lista)
+	public void hacerPedido(List<Producto> lista)
 	{
 		JDialog dialogo=new JDialog(vista,"Hacer Pedido",false);
-		ArrayList<Producto> listaPedido=new ArrayList<Producto>();
 		boolean [] estado=new boolean[lista.size()];
 		JPanel panelCentral=new JPanel(new BorderLayout());
 		JPanel panel=new JPanel(new GridLayout(2,1));
@@ -227,7 +246,7 @@ public ArrayList<Categorias> ConsultarDatosCategorias(String comando,String info
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ArrayList<Producto> listaSec=new ArrayList<Producto>();
+				ArrayList<Producto> listaSec=new ArrayList<>();
 				for(int i=0;i<lista.size();i++)
 				{
 					if(estado[i])
@@ -251,7 +270,7 @@ public ArrayList<Categorias> ConsultarDatosCategorias(String comando,String info
 	}
 	
 	
-	public void addPedido(ArrayList<Producto> lista) {
+	public void addPedido(List<Producto> lista) {
 		String str="insert into pedidos(pedidoID,precioTotal,proveedor) values(";
 		String [] s=new String [lista.size()];
 		float contPrecio=0;
@@ -266,17 +285,17 @@ public ArrayList<Categorias> ConsultarDatosCategorias(String comando,String info
 		
 		str=str+String.valueOf(pedidoID)+","+String.valueOf(contPrecio)+","+"'Alguien')";
 		
-		Conexion con=new Conexion();
-		Connection conn=con.crearConexion();
+		Conexion con=new Conexion("admin");
+		Connection conn=con.crearConexionBD("admin");
 		
 		insertarDatos(str,conn);
 		System.out.println(str);
 		for(int i=0;i<lista.size();i++)
 		{
-			con=new Conexion();
-			conn=con.crearConexion();
+			con=new Conexion("admin");
+			conn=con.crearConexionBD("admin");
 			insertarDatos(s[i],conn);
-			System.out.println(s[i]);
+			
 		}
 		
 		
@@ -286,12 +305,12 @@ public ArrayList<Categorias> ConsultarDatosCategorias(String comando,String info
 	
 	public boolean identificarse(String s1,String s2,Connection con)
 	{
-		ArrayList<String[]> lista = new ArrayList<String[]>();
+		ArrayList<String[]> lista = new ArrayList<>();
 		
 		try {
 			Statement stmt=(Statement) con.createStatement();
 			ResultSet rs=stmt.executeQuery("select nombre from socios");
-			//Boolean rs=stmt.execute(s3);
+			
 			ResultSetMetaData result;
 			result=(ResultSetMetaData) rs.getMetaData();
 		
@@ -312,8 +331,8 @@ public ArrayList<Categorias> ConsultarDatosCategorias(String comando,String info
 			}
 			con.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			Logger.getAnonymousLogger().log(Level.INFO,e.getMessage(),e);
 		}
 		return false;
 	}

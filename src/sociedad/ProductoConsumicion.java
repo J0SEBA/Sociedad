@@ -1,6 +1,4 @@
-package sociedad2;
-
-import java.sql.Date;
+package sociedad;
 
 public class ProductoConsumicion {
 	

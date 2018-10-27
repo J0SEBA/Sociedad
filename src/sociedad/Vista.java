@@ -1,4 +1,4 @@
-package sociedad2;
+package sociedad;
 
 
 import java.awt.BorderLayout;
@@ -8,12 +8,10 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
-
-import javax.swing.BorderFactory;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -21,11 +19,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
-import javax.swing.JTable;
-import javax.swing.JToolBar;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -45,10 +39,9 @@ public class Vista extends JFrame implements Observer{
 		super(s);
 		modelo = new Modelo(this);
 		controlador=new Controlador(this,modelo);
-		//conexion=new Conexion();
 		this.setJMenuBar(crearBarraMenu());
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
-		Image fondo = toolkit.createImage("icons/sozidadia.jpg"); 
+		fondo = toolkit.createImage("icons/sozidadia.jpg"); 
 		panel = new JPanel(new BorderLayout());
 		panel.add(crearPanelBotones(),BorderLayout.CENTER);
 		this.setContentPane(panel);
@@ -62,10 +55,10 @@ public class Vista extends JFrame implements Observer{
 	}
 	
 	private JMenu crearMenuSalir() {
-		JMenuItem op;
+		
 		JMenu menuSalir = new JMenu ("Cerrar sesion");
 		
-		op=menuSalir.add("Salir");
+		menuSalir.add("Salir");
 		
 		
 		return menuSalir;
@@ -139,27 +132,24 @@ public class Vista extends JFrame implements Observer{
 		try {
 			UIManager.setLookAndFeel("de.javasoft.plaf.synthetica.SyntheticaBlackStarLookAndFeel");
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			Logger.getAnonymousLogger().log(Level.INFO,e.getMessage(),e);
 		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.getAnonymousLogger().log(Level.INFO,e.getMessage(),e);
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logger.getAnonymousLogger().log(Level.INFO,e.getMessage(),e);
 		} catch (UnsupportedLookAndFeelException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		
+			Logger.getAnonymousLogger().log(Level.INFO,e.getMessage(),e);
 		}
 		
 		Vista vista=new Vista("Testeo");
-		Login log=new Login(vista);
 
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

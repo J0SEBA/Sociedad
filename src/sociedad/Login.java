@@ -1,13 +1,10 @@
-package sociedad2;
+package sociedad;
 
 import java.awt.Component;
 import java.awt.Container;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
-
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -96,20 +93,13 @@ public class Login extends JDialog implements ActionListener {
 	
 	if(e.getActionCommand().equals("Aceptar")) {
 		   
-		   String user = usuario.getText();
-		   String password = contraseña.getText();
 		   
-		   System.out.println(password);
+		   String password = contraseña.getSelectedText();
 		   
-		  //  try {
-		    /*for(int j = 0;j < vista.modelo.ConsultarDatosSocio("Select * from socios where estado = 'activo'", "Socios", vista.conexion.conex).size();j++) {
-		        Socio socio;
-		        socio = vista.modelo.ConsultarDatosSocio("Select * from socios where estado = 'Activo'", "Socios",
-		        vista.conexion.conex).get(j);*/
+		 
 		     Socio  socio=new Socio( 1, "j", "j", "j", "j", "j", 
 	   "j", "j",true, "j");
-		    if(/*socio.getUsuario().equals(user) 
-		  && (socio.getSocioId() == Integer.valueOf(password))*/true){
+		    if(true){
 		  
 		  
 		  vista.go(socio);
@@ -118,12 +108,7 @@ public class Login extends JDialog implements ActionListener {
 		 
 		  
 		 }
-		      //  }
-		   } /*catch (SQLException e1) {
-		    // TODO Auto-generated catch block
-		    e1.printStackTrace();
-		   }
-		  
-		  }*/
+		     
+		   } 
 	}
 }

@@ -1,10 +1,10 @@
-package sociedad2;
+package sociedad;
 
-import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
-import java.awt.Font;
+;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,6 +12,9 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
@@ -23,18 +26,16 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 
 import com.mysql.jdbc.Connection;
 
 public class DialogoVerProducto extends JDialog implements ActionListener,ItemListener{
 	
 	Vista vista;
-	String comando,info;
+	String comando
+	String info;
 	Connection con;
 	JSplitPane pVentana;
 	JScrollPane scroll;
@@ -56,8 +57,8 @@ public class DialogoVerProducto extends JDialog implements ActionListener,ItemLi
 		this.con = con;
 		
 		label = new JLabel();
-		listaPanel = new JList<Producto>();
-		listaModelo = new DefaultListModel<Producto>();
+		listaPanel = new JList<>();
+		listaModelo = new DefaultListModel<>();
 		scroll = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		
@@ -96,7 +97,7 @@ public class DialogoVerProducto extends JDialog implements ActionListener,ItemLi
 		
 		JPanel panel = new JPanel(new GridLayout(3,1,20,20));
 		
-		combo = new JComboBox<String>();
+		combo = new JComboBox<>();
 		
 		for(int i = 0;i<vista.modelo.ConsultarDatosCategorias(comando, info, con).size();i++) {
 			
@@ -139,11 +140,11 @@ public class DialogoVerProducto extends JDialog implements ActionListener,ItemLi
 	
 	
 	
-	public ArrayList<Producto> InfoProducto(String comando, String info, Connection con) throws SQLException {
+	public List<Producto> infoProducto(String comando, String info, Connection con) throws SQLException {
 		
-		ArrayList<Producto> listaProducto = vista.modelo.ConsultarDatosProductos(comando, info, con);
+		return  vista.modelo.ConsultarDatosProductos(comando, info, con);
 		
-		return listaProducto;
+		
 	}
 	
 	
@@ -157,6 +158,7 @@ public class DialogoVerProducto extends JDialog implements ActionListener,ItemLi
 		  case 1:str = "Bebidas con alcohol";break; 
 		  case 2: str = "Bebida";break;
 		  case 3:str = "Elementos cocina";break;
+		  default:
 		  }
 		  
 		  return str;
@@ -165,13 +167,14 @@ public class DialogoVerProducto extends JDialog implements ActionListener,ItemLi
 		 private String elegirComando(String str) {
 		  
 		  String comando = null;
-		  int i=0;
+		 
 		  switch(str) {
 		  
 		  case "Refrescos": comando = "Select * from productos where categoriaID = 10";break;
 		  case "Bebidas con alcohol":comando = "Select * from productos where categoriaID = 11";break; 
 		  case "Bebida": comando = "Select * from productos where categoriaID = 12";break;
 		  case "Elementos cocina":comando = "Select * from productos where categoriaID = 13"; break;
+		 default:
 		  }
 		  
 		  return comando;
@@ -194,6 +197,7 @@ public class DialogoVerProducto extends JDialog implements ActionListener,ItemLi
 		case 3:
 			str = "Elementos cocina";
 			break;
+			default:
 		}
 		
 		icono = new ImageIcon("icons/" + str + ".jpg");
@@ -237,8 +241,8 @@ public class DialogoVerProducto extends JDialog implements ActionListener,ItemLi
 				
 				
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				
+				Logger.getAnonymousLogger().log(Level.INFO,e1.getMessage(),e);
 			}
 			
 			
@@ -265,10 +269,10 @@ public class DialogoVerProducto extends JDialog implements ActionListener,ItemLi
 	     listaModelo.addElement(vista.modelo.ConsultarDatosProductos(comando1, info, con).get(j));
 	    }
 	    
-	   //listaPanel.setModel(listaModelo);
+	  
 	  } catch (SQLException e1) {
-	   // TODO Auto-generated catch block
-	   e1.printStackTrace();
+	   
+		  Logger.getAnonymousLogger().log(Level.INFO,e1.getMessage(),e);
 	  }
 	}
 }

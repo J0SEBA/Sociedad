@@ -12,13 +12,15 @@
 
 /** @brief Packages
  */
-package sociedad2;
+package sociedad;
 
 /** @brief Libraries
  */
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @brief Conexion class
@@ -61,11 +63,11 @@ public Connection crearConexionBD(String usuario)
 			con=DriverManager.getConnection(url,usuario, "321");
 			return con;
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			Logger.getAnonymousLogger().log(Level.INFO,e.getMessage(),e);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			Logger.getAnonymousLogger().log(Level.INFO,e.getMessage(),e);
 		}
 		return null;
 	}

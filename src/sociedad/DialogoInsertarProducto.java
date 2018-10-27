@@ -1,4 +1,4 @@
-package sociedad2;
+package sociedad;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -22,9 +22,16 @@ import javax.swing.JTextField;
 
 public class DialogoInsertarProducto extends JDialog implements ActionListener, ItemListener{
 	
-	JTextField descripcion,stock,stockMin,stockMedio,precio;
+	JTextField descripcion;
+	JTextField stock;
+	JTextField stockMin;
+	JTextField stockMedio;
+	JTextField precio;
 	ButtonGroup datos;
-	JRadioButton categoria10,categoria11,categoria12,categoria13;
+	JRadioButton categoria10;
+	JRadioButton categoria11;
+	JRadioButton categoria12;
+	JRadioButton categoria13;
 	String categoria;
 	int i;
 	
@@ -54,8 +61,6 @@ public class DialogoInsertarProducto extends JDialog implements ActionListener, 
 public Container crearGrupoBoton(String titulo) {
 		
 		JPanel panel = new JPanel(new GridLayout(2,3,0,0));
-		/*panel.setBorder(BorderFactory.createTitledBorder(
-				BorderFactory.createLineBorder(Color.cyan), titulo));*/
 		panel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder(
 				BorderFactory.createLineBorder(Color.cyan), titulo), BorderFactory.createEmptyBorder(0, 0, 0,0)));
 	
@@ -161,6 +166,8 @@ public Container crearGrupoBoton(String titulo) {
 		case "Aliños":
 			catId = "13";
 			break;
+		default:
+				
 		}
 		
 		Producto producto = new Producto(i,Integer.valueOf(catId),descripcion.getText(),Integer.valueOf(stock.getText()),

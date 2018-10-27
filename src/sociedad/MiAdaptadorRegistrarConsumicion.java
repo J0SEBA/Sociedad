@@ -1,4 +1,4 @@
-package sociedad2;
+package sociedad;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

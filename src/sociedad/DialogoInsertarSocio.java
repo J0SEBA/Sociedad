@@ -1,4 +1,4 @@
-package sociedad2;
+package sociedad;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -19,7 +19,14 @@ import javax.swing.JTextField;
 
 public class DialogoInsertarSocio extends JDialog implements ActionListener{
 	
-	JTextField socioID,usuario,nombre,apellido1,apellido2,poblacion,direccion,telefono,cuentaCorriente;
+	JTextField socioID;
+	JTextField usuarionombre;
+	JTextField apellido1;
+	JTextField apellido2;
+	JTextField poblacion;
+	JTextField direccion;
+	JTextField telefono;
+	JTextField cuentaCorriente;
 	Vista vista;
 	int id;
 	

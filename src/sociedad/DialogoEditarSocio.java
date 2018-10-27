@@ -1,4 +1,4 @@
-package sociedad2;
+package sociedad;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -17,7 +17,15 @@ import javax.swing.JTextField;
 
 public class DialogoEditarSocio extends JDialog implements ActionListener {
 	
-	JTextField socioID,usuario,nombre,apellido1,apellido2,poblacion,direccion,telefono,cuentaCorriente;
+	JTextField socioID;
+	JTextField usuario;
+	JTextField nombre;
+	JTextField apellido1;
+	JTextField apellido2;
+	JTextField poblacion;
+	JTextField direccion;
+	JTextField telefono;
+	JTextField cuentaCorriente;
 	Vista vista;
 	Socio socio;
 	
@@ -100,7 +108,7 @@ public class DialogoEditarSocio extends JDialog implements ActionListener {
 		
 		if(e.getActionCommand().equals("Actualizar")) {
 			
-			System.out.println("eeeeee");
+			
 	
 			if(socio.getNombre() != null && socio.getApellido1() != null && socio.getApellido2() != null 
 					&& socio.getPoblacion()!= null && socio.getDireccion() != null &&
