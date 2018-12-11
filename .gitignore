@@ -1,9 +1,7 @@
-/bin/
 /.scannerwork/
 /.settings/
 /icons/
 /copybooks/
 /coverage-report/
-.classpath
 .project
 MyFirstMaven
